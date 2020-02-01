@@ -7,7 +7,7 @@ public class GedcomValidator {
 
     public static void main(String args[]) throws IOException {
 
-        File file = new File("/Users/mahirdhall/Desktop/Project_02_Dhall_Mahir_CS555A/My-Family-27-Jan-2020-330.ged");
+        File file = new File("/Users/mahirdhall/Desktop/Project_02_Dhall_Mahir_CS555A/proj02test.ged");
 
         Scanner sc = new Scanner(file);
 
@@ -40,7 +40,7 @@ public class GedcomValidator {
             String[] currArr = currLine.split(" ");
 
             String level = currArr[0];
-            
+
             if (level.equals("0")) {
                 if (currArr[1].equals("HEAD") || currArr[1].equals("TRLR") || currArr[1].equals("NOTE")) {
                     System.out.print("<--" + level + "|" + currArr[1] + "|Y|");
@@ -72,13 +72,13 @@ public class GedcomValidator {
                         }
                     }
                 }
-                // else {
-                // System.out.print("<--" +level + "|" + currArr[1] + "|N|");
-                // for (int i = 2; i < currArr.length; i++) {
-                // System.out.print(currArr[i] + " ");
-                // }
+                else {
+                System.out.print("<--" +level + "|" + currArr[1] + "|N|");
+                for (int i = 2; i < currArr.length; i++) {
+                System.out.print(currArr[i] + " ");
+                }
 
-                // }
+                }
             } else if (level.equals("2")) {
                 if (!currArr[1].equals("DATE")) {
                     System.out.print("<--" + level + "|" + currArr[1] + "|N|");
@@ -92,8 +92,7 @@ public class GedcomValidator {
                     }
 
                 }
-            }
-            else {
+            } else {
                 System.out.print("<--" + level + "|" + currArr[1] + "|N|");
                 for (int i = 2; i < currArr.length; i++) {
                     System.out.print(currArr[i] + " ");
